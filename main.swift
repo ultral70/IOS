@@ -1,60 +1,70 @@
-//Operadores
+//Ejercicio 1: Calcula el perímetro y el área de un rectángulo, dada su base y su altura
+var ancho = 20
+var alto = 10
+var area = (ancho * alto)
+var perim = (ancho * 2) + (alto * 2)
+print("Área ejercicio 1: \(area)")
+print("Perímetro ejercicio 1: \(perim)")
 
-//Operadores de Asignación
+//Ejercicio 2: dados los catetos de un triángulo rectángulo, calcular su hipotenusa
+var cateto1 = 20
+var cateto2 = 30
+var hipotenusa = (cateto1 * cateto1) + (cateto2 * cateto2)
 
-let a = 5 //el "=" asigna valores
-var b = 10
-b = a // asignamos el valor de "b" a "a"
+//Ejercicio 3: dados dos números, mostrar la suma, resta, división y multiplicación de ambos
+var num1 = 15
+var num2 = 30
+var sum = (num1 + num2)
+var resta = (num1 - num2)
+var divis = (num2 / num1)
+var mult = (num1 * num2)
+print("\nSuma Ejercicio 3: \(sum)")
+print("Resta Ejercicio 3: \(resta)")
+print("División Ejercicio 3: \(divis)")
+print("Multiplicación Ejercicio 3: \(mult)")
 
-//Operadores aritméticos
-print(1 + 2) // suma
-print(1 - 1) // resta
-print(2 * 4) // multiplicación
-print(4 / 2) // división
-print(1 % 2) // módulo, resto de la división entera
+//Ejercicio 4: escribir un programa que convierta un valor dado en grados Farenheit a grados Celsius
+var farenheit = 54
+var celsius = (farenheit - 32) * 5 / 9
+print("\nGrados Celsius Ejercicio 4: \(celsius)")
 
-//OP (operador) negar
-var c = -b //negativo de un número
+//Ejercicio 5: Calcular la media de 3 números dados por teclado
+var media1 = 20
+var media2 = 43
+var media3 = 12
+var media = (media1 + media2 + media3) / 3
+print("Media Ejercicio 5: \(media)")
 
-//OP composición
-b += 10 // b = b + 10
+//Ejercicio 6: Un vendedor recibe un sueldo base mas un 10% extra por comision de sus ventas,	el vendedor desea saber cuanto dinero obtendrá por concepto de comisiones por las tres ventas que realiza en el mes y el total que recibirá en el mes tomando	en cuenta su sueldo base y comisiones.
+var venta1 = 1000.0
+var venta2 = 2000.0
+var venta3 = 500.0
+var comision1 = venta1 * 1.1
+print("Comisión venta1 : ")
+var comision2 = venta2 * 1.1
+var comision3 = venta3 * 1.1
+var sueldo = comision1 + comision2 + comision3
+print("\nSueldo Total Ejercicio 6: \(sueldo)")
 
-//OP comparadores
-print(1 == 1) // comparamos si es un valor igual a otro
-print(1 != 2) // comparamos si es distinto
-print(2 > 1) // mayor
-print(1 < 2) // menor
-print(2 >= 1) //mayor o igual
-print(1 <= 2) // menor o igual
+//Ejercicio 7: un alumno desea saber cual será su calificación final en la materia de IOS.	Dicha calificación se compone de los siguientes porcentajes:	* 55% del promedio de sus tres calificaciones parciales.	* 30% de la calificación del examen final.	* 15% de la calificación de un trabajo final.
+var exParcial = 8.3
+var exFinal = 6.4
+var calTrabajo = 7.8
+var mediaParcial = (exParcial * 0.55)
+var mediaFinal = (exFinal * 0.3)
+var mediaTrabajo = (calTrabajo * 0.15)
+var nota = mediaFinal + mediaParcial + mediaTrabajo
+print("\nNota Final Ejercicio 7: \(nota)")
 
-//OP ternario
-//Operador equivalente a un if-else, más corto
-let anchura = 40
-let tieneCabecera = true
-//Supongamos que la altura de la columna es en función de si tiene cabecera y de la anchurA. En caso de que, si tieneCabecera es true, se ejecuta el código que hay después de la "?", en caso contrario, se ejecuta el código de después del ":"
-var alturaColumna = anchura + (tieneCabecera ? 50 : 20) 
-print(alturaColumna)//90
+//Ejercicio 8: escribir un algoritmo para calcular la nota final de un estudiante, considerando que:	por cada respuesta correcta 5 puntos, por una incorrecta -1 y por respuestas en	blanco 0. Imprime el resultado obtenido por el estudiante.
+var respuCorrec = 5
+var respuFall = 4
+var respu0 = 1
+var puntos = (respuCorrec * 5) + (respuFall * -1) + (respu0 * 0)
+print("\nPuntuación Final Ejercicio 8: \(puntos)")
 
-//operador nil-coalescing  (Nil-fusionado)
-
-//Sintaxis (a ?? b)
-//Se utliliza mucho con optionals
-//En caso de que el optional "a" tenga un valor, entonces devuelve el valor de "a"
-//En caso de que el optional "a" sea nulo, entonces devuelve el valor de "b"
-let colorPorDefecto = "Azul"
-var colorDefinidoPorUsuario : String? //Se inicializa a nil (nulo)
-colorDefinidoPorUsuario = "verde"
-
-var color = (colorDefinidoPorUsuario ?? colorPorDefecto)
-print(color)
-
-//operadres lógicos
-//logical NOT (!variable)
-//logical AND (variable1 && variable2) Devuelve true si las dos variables son iguales
-//logical OR (variable1 || variable2) Devuelve true si las dos variables son distintas
-var verdad = true
-var mentira = !verdad
-print(verdad)
-print(mentira)
-print(verdad && mentira)
-print(verdad || mentira)
+//Ejercicio 9: calcula el sueldo de un trabajador, cuyo valor es su sueldo base más un numero de horas extra trabajadas, pero teniendo en cuenta que el dicho numero de horas puede ser nulo
+var sueldoOrig = 2000 
+var horas : Int? = 5
+var sueldoFinal = sueldoOrig + horas!
+print ("\nSueldo Final Ejercicio 9 \(sueldoFinal)")
