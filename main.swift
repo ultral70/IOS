@@ -47,3 +47,14 @@ colorDefinidoPorUsuario = "verde"
 
 var color = (colorDefinidoPorUsuario ?? colorPorDefecto)
 print(color)
+
+//operadres lógicos
+//logical NOT (!variable)
+//logical AND (variable1 && variable2) Devuelve true si las dos variables son iguales
+//logical OR (variable1 || variable2) Devuelve true si las dos variables son distintas
+var verdad = true
+var mentira = !verdad
+print(verdad)
+print(mentira)
+print(verdad && mentira)
+print(verdad || mentira)
