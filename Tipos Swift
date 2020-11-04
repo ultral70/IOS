@@ -1,0 +1,204 @@
+//Ver los tipos más importantes en Swift y en algunos métodos y formas de trabajar
+
+//Enteros
+let numero : Int //declaración
+let numerosDeLaMano = 5 //Creación con inferencia de tipos, decidiendo en tiempo de ejecución el tipo de variable, o constante
+
+//Para números grandes, se puede poner _ para separar millares, siendo así más agradable a la vista
+let numeroDeEstrellas = 1_000_000_000_000
+
+print(type(of:numero))
+print(type(of:numerosDeLaMano))
+print(type(of:numeroDeEstrellas))
+
+//Otros sistemas numéricos
+let nBinario = 0b101 // 0b para binario
+let nOctal = 0o21 // 0o para octal
+let nHexa = 0xAAFF // 0x para hexadecimal
+
+print(nBinario)
+print(nOctal)
+print(nHexa)
+
+//Double
+let decimalUno : Double
+//Son números en coma flotante, es decir, que aumentan decimales, hasta 64 bits; con precisión de 15 dígitos
+decimalUno = 12.12345
+//Añadiendo una e y un número después, logramos que el número se multiplique por un exponente (10 elevado a 1 etc.)
+var decimalConExponente = 1.212345e8
+print(decimalUno)
+print(decimalConExponente)
+
+//Float
+//Son números en coma flotante hasta 32 bits, con precisión de 5 dígitos
+//Mejor utilizar Double
+var numeroFloat : Float = 12.12345
+
+//Booleanas
+var verdadero : Bool = true // Declarando
+var falso = false //Inferencia de tipos
+
+//Caracteres
+let caracter : Character = "f"
+
+//Strings
+//Representan cadenas de Caracteres
+var cadena = "Esto es un Strin muy bonito"
+var cadena2 : String = "Esto sería otra cadena"
+
+//Dos maneras de crear un objeto String
+cadena = "Homer"
+cadena2 = String("Homer")
+//Ambas maneras son equivalentes
+
+//Comparación
+if cadena == cadena2 {
+
+print("Las cadenas son iguales")
+
+}
+
+//String vacío
+if cadena.isEmpty {
+
+print("Cadena vacía")
+
+} else {
+
+  print("La cadena no está vacía")
+
+}
+
+//Mutabilidad
+//Un objeto es inmutable cuando no podemos cambiar su estado durante su ciclo de vida
+//El estado de un objeto es el valor de sus atributos
+//En swift hacemos un String mutable con "var"
+var stringMutable = "Caballo"
+stringMutable += " y Caballa" //Concatena
+
+//Hacemos inmutable con let
+let stringInmutable = "Vaca"
+//No podemos hacerlo
+//stringInmutable += " Toro"
+
+//Recorrer un string
+cadena = "Estoy feliz 🚂"
+
+//Podemos usar un for-each
+for otroCaracter in cadena {
+
+  print(otroCaracter)
+
+}
+
+//Podemos crear un String a partir de un array de Caracteres
+let caracteresDeGato : [Character] = ["C", "A", "T", "!"]
+//Usamos el constructor Strin y le pasamos el array, en swift los objetos se crean sin "new"
+let stringDeGato = String(caracteresDeGato)
+print(stringDeGato)
+
+//Concatenación
+let string1 = "Hola, "
+let string2 = "¿cómo estás?"
+var string3 = string1 + string2
+
+//También con append
+string3.append(" Yo bien 🚂 ")
+print(string3)
+
+//También podemos concatenar con "+="
+string3 += " Me alegro mucho! 🚂"
+print(string3)
+
+//Interpolación
+var numeroDoble : Double = 74.3456
+string3.append("Mira que número acabo de calcular: ")
+//string3 += numeroDoble
+//no podemos concatenar a un String otra cosa que no sea String
+string3 += String(numeroDoble)
+print(string3)
+string3 += " y ahora pongo otra vez el número \(numeroDoble)" //Interpolación
+print(string3)
+
+//Caractere unicode
+let sonrisa = "🚂"
+let sonrisa2 = "\u{1F682}"
+print(sonrisa)
+print(sonrisa2)
+
+//comparaciones con nil
+var cadena3 = "Goku" //tipo normal
+var cadena4 : String! = "Goku" //tipo optional
+if(cadena3 == cadena4) {
+
+  print("Son iguales")
+
+}
+
+//String multilínea
+//Característica de swift por la cual podemos crear de manera sencilla textos con varias líneas
+var html = "<html>"
+html += "<head><title>Mi página web</title></head>"
+html += "<body>"
+//esto es un poco rollo... :(
+//Podemos usar Strings multilíneas (""")
+var htmlMultilinea = """
+<html>
+    <head>
+        <title>Mi página web</title>
+    </head>
+    <body>
+        <h1>P</h1>
+    </body>
+</html>
+"""
+print(htmlMultilinea)
+
+//Contar caracteres de un String
+print("El número de caracteres de la palabra \(cadena3) es \(cadena3.count)")
+
+//Tratamiento de caracteres con String
+//STRING ES UN CONJUNTO DE CARACTERES CON ALGUNA PECURIALIDAD... :(
+
+let saludo = "Guten tag!"
+//Cada posición del String tiene un "Tipo índice" asociado, llamado "String.index" el cual corresponde con la posición de cada caracter del String
+print(saludo)
+//print(saludo[0]) // no podemos hacerlo :( :(
+
+//Para manejar las posiciones de un String tenemos que jugar con una serie de funciones y propiedades
+//startIndex -> propiedad que representa la primera letra de la cadena
+//endIndex -> propiedad que representa LA SIGUIENTE POSICIÓN a la ÚLTIMA LETRA de la cadena
+
+print(saludo.startIndex) //Me dice la posición 1
+print(saludo[saludo.startIndex]) //G
+//print(saludo[saludo.endIndex]) //Esto da error
+//La clase String tiene un método que se llama index, que nos devuelve un caracter de la cadena, bajo algunas condiciones
+//Ej, para sacar el último carácter
+var indiceCreado = saludo.index(before: saludo.endIndex) //!
+print(saludo[indiceCreado])
+
+//podemos contar caracteres desde el principio
+//por ejemplo 7 caracteres desde el principio
+//La función index está sobrecargada, en este caso primero le pasamos desde donde queremos empezar y, a continuación, le damos cuantos caracteres queremos recorrer
+indiceCreado = saludo.index(saludo.startIndex, offsetBy: 7)
+print(saludo[indiceCreado]) //a
+
+indiceCreado = saludo.index(saludo.endIndex, offsetBy: -4)
+print(saludo[indiceCreado])
+
+//Insertar caracteres en una posición concreta
+var bienvenida = "welcome"
+bienvenida.insert("!", at: bienvenida.endIndex)
+print(bienvenida)
+
+//Casting, cambiar de tipos
+//En swift debemos de usar los constructores de clase para cambiar de tipo
+let numeroEntero = 12 //El tipo será Int, por inferencia
+let numeroDoble2 = Double(numeroEntero)
+
+print(type (of: numeroDoble2))
+
+//Si hay riesgo de casteo, swift devuelve un Optional
+cadena = "32"
+let enteroConvertido = Int(cadena)! //Esto sería un optional, en caso de que no pueda convertirlo apuntaría a nil
+print(enteroConvertido ?? "valor no convertido") //Ponemos ! para desenvolver el optional
