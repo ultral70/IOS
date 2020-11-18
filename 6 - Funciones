@@ -153,23 +153,3 @@ let bounds = minMax(array: [8, -6, 2, 109, 3, 71])
 //Podemos agrupar en tuplas directamente los valores, para utilizar la función bounds con ella, o identificar cada uno de los valores con una variabl
 print(bounds.min)
 print(bounds.max)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
