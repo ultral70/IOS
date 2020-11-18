@@ -3,21 +3,22 @@ var ancho = 20
 var alto = 10
 var area = (ancho * alto)
 var perim = (ancho * 2) + (alto * 2)
-print("Área ejercicio 1: \(area)")
+print("Área ejercicio 1: \(area)") //La variable String se expande
 print("Perímetro ejercicio 1: \(perim)")
 
 //Ejercicio 2: dados los catetos de un triángulo rectángulo, calcular su hipotenusa
-var cateto1 = 20
-var cateto2 = 30
-var hipotenusa = (cateto1 * cateto1) + (cateto2 * cateto2)
+var cateto1 = 20.0
+var cateto2 = 30.0
+//var hipotenusa = sqrt((cateto1 * cateto1) + (cateto2 * cateto2))
+//print("La hipotenusa es: \hipotenusa")
 
 //Ejercicio 3: dados dos números, mostrar la suma, resta, división y multiplicación de ambos
 var num1 = 15
 var num2 = 30
-var sum = (num1 + num2)
-var resta = (num1 - num2)
-var divis = (num2 / num1)
-var mult = (num1 * num2)
+var sum = num1 + num2 //En algunos casos se necesita separar las variables de los operadores
+var resta = num1 - num2
+var divis = num2 / num1
+var mult = num1 * num2
 print("\nSuma Ejercicio 3: \(sum)")
 print("Resta Ejercicio 3: \(resta)")
 print("División Ejercicio 3: \(divis)")
@@ -66,5 +67,7 @@ print("\nPuntuación Final Ejercicio 8: \(puntos)")
 //Ejercicio 9: calcula el sueldo de un trabajador, cuyo valor es su sueldo base más un numero de horas extra trabajadas, pero teniendo en cuenta que el dicho numero de horas puede ser nulo
 var sueldoOrig = 2000 
 var horas : Int? = 5
-var sueldoFinal = sueldoOrig + horas!
+let precioHora = 50
+var totalExtra = precioHora * (horas ?? 0) //Operador nil coalsing, se comporta como un if de java
+var sueldoFinal = sueldoOrig + totalExtra
 print ("\nSueldo Final Ejercicio 9 \(sueldoFinal)")
