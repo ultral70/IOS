@@ -1,73 +1,95 @@
-//Ejercicio 1: Calcula el perímetro y el área de un rectángulo, dada su base y su altura
-var ancho = 20
-var alto = 10
-var area = (ancho * alto)
-var perim = (ancho * 2) + (alto * 2)
-print("Área ejercicio 1: \(area)") //La variable String se expande
-print("Perímetro ejercicio 1: \(perim)")
+//Ej1. Algoritmo que pida un número y diga si es positivo, negativo o 0.
+print("Ejercicio 1")
+var num = 0
+if num > 0 {
 
-//Ejercicio 2: dados los catetos de un triángulo rectángulo, calcular su hipotenusa
-var cateto1 = 20.0
-var cateto2 = 30.0
-//var hipotenusa = sqrt((cateto1 * cateto1) + (cateto2 * cateto2))
-//print("La hipotenusa es: \hipotenusa")
+  print("El número \(num) es positivo")
 
-//Ejercicio 3: dados dos números, mostrar la suma, resta, división y multiplicación de ambos
-var num1 = 15
-var num2 = 30
-var sum = num1 + num2 //En algunos casos se necesita separar las variables de los operadores
-var resta = num1 - num2
-var divis = num2 / num1
-var mult = num1 * num2
-print("\nSuma Ejercicio 3: \(sum)")
-print("Resta Ejercicio 3: \(resta)")
-print("División Ejercicio 3: \(divis)")
-print("Multiplicación Ejercicio 3: \(mult)")
+} else if num < 0 {
 
-//Ejercicio 4: escribir un programa que convierta un valor dado en grados Farenheit a grados Celsius
-var farenheit = 54
-var celsius = (farenheit - 32) * 5 / 9
-print("\nGrados Celsius Ejercicio 4: \(celsius)")
+  print("El número \(num) es negativo")
 
-//Ejercicio 5: Calcular la media de 3 números dados por teclado
-var media1 = 20
-var media2 = 43
-var media3 = 12
-var media = (media1 + media2 + media3) / 3
-print("Media Ejercicio 5: \(media)")
+}else {
 
-//Ejercicio 6: Un vendedor recibe un sueldo base mas un 10% extra por comision de sus ventas,	el vendedor desea saber cuanto dinero obtendrá por concepto de comisiones por las tres ventas que realiza en el mes y el total que recibirá en el mes tomando	en cuenta su sueldo base y comisiones.
-var venta1 = 1000.0
-var venta2 = 2000.0
-var venta3 = 500.0
-var comision1 = venta1 * 1.1
-print("Comisión venta1 : ")
-var comision2 = venta2 * 1.1
-var comision3 = venta3 * 1.1
-var sueldo = comision1 + comision2 + comision3
-print("\nSueldo Total Ejercicio 6: \(sueldo)")
+  print("El número \(num) es 0")
 
-//Ejercicio 7: un alumno desea saber cual será su calificación final en la materia de IOS.	Dicha calificación se compone de los siguientes porcentajes:	* 55% del promedio de sus tres calificaciones parciales.	* 30% de la calificación del examen final.	* 15% de la calificación de un trabajo final.
-var exParcial = 8.3
-var exFinal = 6.4
-var calTrabajo = 7.8
-var mediaParcial = (exParcial * 0.55)
-var mediaFinal = (exFinal * 0.3)
-var mediaTrabajo = (calTrabajo * 0.15)
-var nota = mediaFinal + mediaParcial + mediaTrabajo
-print("\nNota Final Ejercicio 7: \(nota)")
+}
+//Ej2. Escribe un programa que lea un número e indique si es par o impar.
+print("\nEjercicio 2")
+var numImp = 3
+if (numImp % 2 == 0) {
 
-//Ejercicio 8: escribir un algoritmo para calcular la nota final de un estudiante, considerando que:	por cada respuesta correcta 5 puntos, por una incorrecta -1 y por respuestas en	blanco 0. Imprime el resultado obtenido por el estudiante.
-var respuCorrec = 5
-var respuFall = 4
-var respu0 = 1
-var puntos = (respuCorrec * 5) + (respuFall * -1) + (respu0 * 0)
-print("\nPuntuación Final Ejercicio 8: \(puntos)")
+  print("El número \(numImp) es par")
 
-//Ejercicio 9: calcula el sueldo de un trabajador, cuyo valor es su sueldo base más un numero de horas extra trabajadas, pero teniendo en cuenta que el dicho numero de horas puede ser nulo
-var sueldoOrig = 2000 
-var horas : Int? = 5
-let precioHora = 50
-var totalExtra = precioHora * (horas ?? 0) //Operador nil coalsing, se comporta como un if de java
-var sueldoFinal = sueldoOrig + totalExtra
-print ("\nSueldo Final Ejercicio 9 \(sueldoFinal)")
+} else {
+
+  print("El número \(numImp) es impar")
+
+}
+//Ej3. Escribe un programa que dado un nombre de usuario y una contrase 'f1a 
+//y si se ha introducido "pepe" y "asdasd" se indica "Has entrado al sistema", 
+// print("\nEjercicio 3")
+
+var nomUsu = "pepe"
+var contra = "asdasd"
+
+if nomUsu == "pepe" && contra == "asdasd" {
+
+  print("Has entrado al sistema \(nomUsu) con contraseña ******")
+
+}
+
+//Ej4. Programa que dada una cadena por teclado y compruebe si la primera letra es un "/" y la segunda un "*", en caso afirmativo se escribira la palabra entera, en caso contrario escribir "no es correcta".
+
+print("\nEjercicio 4")
+var cadenaI = "/*ola"
+var array : Array<Character>
+array.append(cadenaI)
+
+for char in array {
+
+  if char[0] == "/" && char[1] == "*" {
+
+    print("cadenaI")
+
+  } else {
+
+    print("No es correcta")
+
+  }
+
+} 
+
+
+
+
+
+
+//Ej5. Algoritmo que dado tres n 'fameros y los muestre ordenados (de mayor a menor);
+print("\nEjercicio 5")
+
+var num1 = 3
+var num2 = 5
+var num3 = 1
+
+var arrayInt = num1 + num2 + num3
+for item in arrayInt.sorted() {
+
+  print(\nitem)
+
+}
+
+//Ej6. Algoritmo que pida los puntos centrales x1,y1,x2,y2 y los radios r1,r2 de dos 
+//circunferencias y las clasifique en uno de estos estados:
+//exteriores
+//tangentes exteriores
+//secantes
+//tangentes interiores
+//interiores
+//conc'e9ntricas
+//Repetitivas
+//Ej7. Crea una aplicaci'f3n que pida un n'famero y calcule su factorial (El factorial de un n'famero es el producto de todos los enteros entre 1 y el propio n'famero y se representa por el n'famero seguido de un signo de exclamaci'f3n.
+//Ej8. Algoritmo que cree un array con 10 numeros. Debe imprimir la suma y la media de todos los n'fameros introducidos.
+//Ej9. Algoritmo que cree un array con 10 numeros. El programa debe informar de cuantos n'fameros introducidos son mayores que 0, menores que 0 e iguales a 0.
+//Ej 10 Escribir un programa que imprima todos los n'fameros pares entre dos n'fameros
+//Ej 11 Una empresa tiene el registro de las horas que trabaja diariamente un empleado durante la semana (seis d'edas), as'ed como el sueldo que recibir'e1 por las horas trabajadas. Las horas estan en un array y el precio hora esta en 30'80}
