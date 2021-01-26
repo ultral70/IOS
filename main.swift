@@ -1,160 +1,71 @@
-////////////
-//FUNCIONES
-// Parámetros
-////////////
-//Cuando las funciones están dentro de clases se denominan métodos, como en java
-//Requieren que se indique el tipo de los parámetros de entrada y de salida
-func suma(a: Int, b: Int) -> Int { //a y b serían entrada, y devolvemos un Int
-    return a + b //estos son internos & externos, es decir que se llaman igual tanto dentro de la función como fuera de la misma
+
+struct Ram {
+
+var almacenamiento = 0
+var fabricante : String
+var rgb : Bool
+
 }
 
-let sum = suma(a: 3, b: 6)
-//el orden importa
-//sum = suma(b: 5, a: 11) //error!
-//Pueden tener parámetros internos y externos.
-//Dentro de la función el parámetro se llamará "parametroInternoA"
-//Fuera de la función el parámetro se llamará "primerParametroExterno"
-func resta(primerParametroExterno parametroInternoA: Int, segundoParametroExterno parametroInternoB: Int) -> Int {
-    return parametroInternoA - parametroInternoB //estos son internos
+struct Procesador {
+
+var velocidad : Double
+var cores = 0
+var hilos = 0
+var fabricante : String
+
 }
 
-let rest = resta(primerParametroExterno: 4, segundoParametroExterno: 2) //estos son externos
+struct Almacenamiento {
 
-//Se pueden utilizar para que, de cara al usuario, sea más fácil operar con ella
+var capacidad = 0
+var fabricante : String
+var tipo : String
 
-//o mezclarlos
-func sumPlus(a: Int, b: Int, thenMultiplyBy c: Int) -> Int {
-    return (a + b) * c
-}
-let sumMul = sumPlus(a: 3, b: 4, thenMultiplyBy: 5)
-
-//Parámetros por referencia y valor
-//en una función, todos los parámetros son constantes, no se pueden cambiar
-func holamundoValor(a: String) {
-    //a = a + "hola" //Error!
-    print(a)
 }
 
-var variableValor = "mundo"
-holamundoValor(a: variableValor)
+struct Grafica {
 
-//Tenemos que decirlo explicitamente si queremos cambiar el valor
-//Usando "inout"
-var parametro = "hola"
-func holaMundo(a: inout String) {
-    a = a + " mundo" //Ahora sí podemos cambiarlo
-}
-//OJO, al invocar al método debemos de poner un "&" delante del parámetro
+var ram = 0
+var consumo : Double
+var cudaCores : Int
+var velocidad : Double
 
-//y poner un &
-print(holaMundo(a: &parametro))
-print(parametro)
-
-//Casi mejor hacerlo así, devolviendo el nuevo valor
-func holaMundoRetornando(a: String) -> String{
-    return a + " mundo";
 }
 
-print(holaMundoRetornando(a: "Hola"))
+struct Ordenador {
 
-////////////
-//Valores por defecto
-////////////
-//omisión del parámetro externo, para darle un comportamiento como las funciones de java y métodos de java, es decir, que cuando invoquemos la función no tenemos que poner el valor del parámetro externo
-func sinParametroExterno(_ a: String) -> Void { //Con void no devolvemos nada
-    print("hacemos cosas... " + a)
-}
-sinParametroExterno("hola") //Ahora invocas la función como en java
+var precio = 0
+var nombre : String
+var ram = [Ram()]
+var proce = Procesador()
+var uniAlmac = [Almacenamiento()]
+var grafica = Grafica()
 
-///////////
-//Valores por defecto
-///////////
-//En caso de a que Suffix le pasemos un valor, tomará dicho valor
-//En caso de que no le pasemos nada, tomará "of the storm"
-func addSuffixTo(a: String, suffix: String = "of the Storm") -> String {
-    return a + suffix
 }
 
-//Ahora podemos invocar la función de dos maneras
-print(addSuffixTo(a: "Heroes ")) //En este caso suffix tomará "of the storm"
-print(addSuffixTo(a: "Objective", suffix: " C"))
+var pc = Ordenador()
+pc.precio = 1000
+pc.nombre = "Casa"
 
-func addPrefix(prefix: String = "Harry", a: String) -> String {
-    return prefix + a
-}
-print(addPrefix(a: "Potter"))
-print(addPrefix(prefix: "Objective", a: " C"))
+var ram1 = Ram(almacenamiento: 8, fabricante: "Samsung", rgb: true)
 
-//podemos indicar que admiten 0 o mas valores en los parámetros de entrada, en este caso el valor de entrada se convertiría en un Array
-func arithmeticMean(_ numbers: Double...) -> Double {
-    var total: Double = 0
-    
-    //prevenimos de que no entren parametros
-    if(numbers.count == 0){
-        return 0
-    }
-    
-    //Numbers sería un Array
-    for number in numbers {
-        total += number
-    }
-    let media : Double = total / Double(numbers.count);
-    return media;
-}
-print(arithmeticMean(1))
-print(arithmeticMean(5,5,5))
-print(arithmeticMean(3, 8.25, 18.75, 20))//10
-print(arithmeticMean())
+var ram2 = Ram(almacenamiento: 8, fabricante: "Perrón", rgb: true)
 
-////////////
-// Valores de retorno
-////////////
-//un solo tipo
-func returnAlwaysTrue() -> Bool {
-    return true
-}
-print(returnAlwaysTrue())
+var proce = Procesador(velocidad: 2.7, cores: 8, hilos: 16,fabricante: "Intel")
 
-//las funciones pueden devolver tuplas
-func namesOfNumbers(a: Int) -> (Int, String, String) {
-    var val: (Int, String, String)
-    
-    switch a {
-    case 1:
-        val = (1, "one", "uno")
-    case 2:
-        val = (2, "two", "dos")
-    default:
-        val = (a, "Go to Google!", "Vete a Google!")
-    }
-    
-    return val
-}
+var unidad1 = Almacenamiento(capacidad: 256, fabricante: "Propano", tipo: "SSD")
 
-var (numero, en, es) = namesOfNumbers(a: 2)
-print(numero)
-print(en)
-print(es)
+var unidad2 = Almacenamiento(capacidad: 512, fabricante: "Pornpano", tipo: "SSD")
 
-//Otro ejemplo
-func minMax(array: [Int]) -> (min: Int, max: Int) {
-    var currentMin = array[0]
-    var currentMax = array[0]
-    for value in array[1..<array.count] {
-        if value < currentMin {
-            currentMin = value
-        } else if value > currentMax {
-            currentMax = value
-        }
-    }
-    return (currentMin, currentMax)
-}
-let bounds = minMax(array: [8, -6, 2, 109, 3, 71])
-//Podemos agrupar en tuplas directamente los valores, para utilizar la función bounds con ella, o identificar cada uno de los valores con una variabl
-print(bounds.min)
-print(bounds.max)
+var grafica = Grafica(ram: 16, consumo: 89, cudaCores: 40,velocidad: 56.4)
 
+pc.ram.append(ram1, ram2)
+pc.proce = proce
+pc.uniAlmac.append(unidad1, unidad2)
+pc.grafica = grafica
 
+dump(pc)
 
 
 
