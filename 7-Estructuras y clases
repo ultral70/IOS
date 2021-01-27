@@ -1,5 +1,11 @@
 ////////////
 // En swift tenemos dos maneras de encapsular información, por un lado tenemos las estructuras y por otro las clases
+
+En las clases se guardan referencias a valores
+En las estructuras solo guardas los datos
+
+La única diferencia se nota cuando igualamos un objeto de tipo struct a otro (persona2 = persona1) se duplican los valores de persona1; si lo hacemos con clases persona2 apunta a persona1
+
 //
 // Cosas comunes de las estructuras y de las clases
 ////////////
